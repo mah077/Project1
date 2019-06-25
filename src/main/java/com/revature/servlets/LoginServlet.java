@@ -27,16 +27,18 @@ public class LoginServlet extends HttpServlet{
 		PrintWriter pw = resp.getWriter();
 		pw.write("Hello World from servlet doGet method!!!!!");
 		resp.sendRedirect("firstPage.html");
+		tOffer(2,"byebye");
 	}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		
 		System.out.println("Hello Post???");
 		PrintWriter pw = resp.getWriter();
+		tOffer(100,"hello");
 		pw.write("Hello World from servlet doPost method!!!!!!");
-		
-		tOffer(2,"hello");
+		tOffer(2,"yessssssssssssssss");
+	
 			
 		
 	}

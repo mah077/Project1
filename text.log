@@ -1,0 +1,43 @@
+2019-06-23 20:00:56 ERROR root:27 - FATAL: password authentication failed for user "Mah077"
+2019-06-23 20:00:56 ERROR root:27 - FATAL: password authentication failed for user "Mah077"
+2019-06-23 20:00:56 WARN  root:23 - Faild to make DB Connection
+2019-06-23 20:00:57 ERROR root:27 - FATAL: password authentication failed for user "Mah077"
+2019-06-23 20:00:57 ERROR root:27 - FATAL: password authentication failed for user "Mah077"
+2019-06-23 20:00:57 WARN  root:23 - Faild to make DB Connection
+2019-06-23 20:01:06 ERROR root:27 - FATAL: password authentication failed for user "Mah077"
+2019-06-23 20:01:06 ERROR root:27 - FATAL: password authentication failed for user "Mah077"
+2019-06-23 20:01:06 WARN  root:23 - Faild to make DB Connection
+2019-06-23 20:01:06 ERROR root:27 - FATAL: password authentication failed for user "Mah077"
+2019-06-23 20:01:06 ERROR root:27 - FATAL: password authentication failed for user "Mah077"
+2019-06-23 20:01:06 WARN  root:23 - Faild to make DB Connection
+2019-06-23 20:27:32 TRACE root:11 - Connected...
+2019-06-23 20:29:18 TRACE root:11 - jdbc:postgresql://mohamad-1905java.ca5f1rulf96x.us-west-1.rds.amazonaws.com:5432/mohamad_1905java?
+2019-06-23 20:29:18 TRACE root:11 - mah077
+2019-06-23 20:29:18 TRACE root:11 - Mohamad123?
+2019-06-23 20:29:20 TRACE root:11 - Connected...
+2019-06-23 20:56:43 TRACE root:11 - user=mah077
+2019-06-23 20:56:43 TRACE root:11 - url= jdbc:postgresql://mohamad-1905java.ca5f1rulf96x.us-west-1.rds.amazonaws.com:5432/mohamad_1905java?
+2019-06-23 20:56:43 TRACE root:11 - password =Mohamad123?
+2019-06-23 20:56:43 ERROR root:27 - No suitable driver found for user=mah077
+2019-06-23 20:56:43 ERROR root:27 - No suitable driver found for user=mah077
+2019-06-23 20:56:43 WARN  root:23 - Faild to make DB Connection
+2019-06-23 21:05:04 TRACE root:11 - jdbc:postgresql://mohamad-1905java.ca5f1rulf96x.us-west-1.rds.amazonaws.com:5432/mohamad_1905java?
+2019-06-23 21:05:04 TRACE root:11 - mah077
+2019-06-23 21:05:04 TRACE root:11 - Mohamad123?
+2019-06-23 21:05:05 TRACE root:11 - Connected...
+2019-06-23 21:05:25 TRACE root:11 - jdbc:postgresql://mohamad-1905java.ca5f1rulf96x.us-west-1.rds.amazonaws.com:5432/mohamad_1905java?
+2019-06-23 21:05:25 TRACE root:11 - mah077
+2019-06-23 21:05:25 TRACE root:11 - Mohamad123?
+2019-06-23 21:05:27 TRACE root:11 - Connected...
+2019-06-23 22:51:44 TRACE root:11 - jdbc:postgresql://mohamad-1905java.ca5f1rulf96x.us-west-1.rds.amazonaws.com:5432/mohamad_1905java?
+2019-06-23 22:51:44 TRACE root:11 - mah077
+2019-06-23 22:51:44 TRACE root:11 - Mohamad123?
+2019-06-23 22:51:44 ERROR root:27 - The connection attempt failed.
+2019-06-23 22:51:44 ERROR root:27 - The connection attempt failed.
+2019-06-23 22:51:44 WARN  root:23 - Faild to make DB Connection
+2019-06-23 22:52:03 TRACE root:11 - jdbc:postgresql://mohamad-1905java.ca5f1rulf96x.us-west-1.rds.amazonaws.com:5432/mohamad_1905java?
+2019-06-23 22:52:03 TRACE root:11 - mah077
+2019-06-23 22:52:03 TRACE root:11 - Mohamad123?
+2019-06-23 22:52:03 ERROR root:27 - The connection attempt failed.
+2019-06-23 22:52:03 ERROR root:27 - The connection attempt failed.
+2019-06-23 22:52:03 WARN  root:23 - Faild to make DB Connection
