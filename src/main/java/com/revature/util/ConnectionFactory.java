@@ -53,8 +53,8 @@ import java.sql.Connection;
 			try {
 				Class.forName("org.postgresql.Driver");
 				LoggingUtil.trace(url);
-				LoggingUtil.trace(user);
-				LoggingUtil.trace(password);
+				LoggingUtil.trace("m*****");
+				LoggingUtil.trace("password:********");
 				conn = DriverManager.getConnection(url, user,password);
 				LoggingUtil.trace("Connected...");
 			} catch (SQLException e) {

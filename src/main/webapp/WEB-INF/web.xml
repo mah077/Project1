@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
   <display-name>TRMS</display-name>
-
-			<servlet>
-		<servlet-name>loginServlet</servlet-name>
-		<servlet-class>com.revature.servlets.LoginServlet</servlet-class>
-	</servlet>
-	
-	<servlet-mapping>
-		<servlet-name>loginServlet</servlet-name>
-		<url-pattern>/HTML/firstPage</url-pattern>
-	</servlet-mapping>
-
-
-
+  <servlet>
+    <servlet-name>loginServlet</servlet-name>
+    <servlet-class>com.revature.servlets.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginServlet</servlet-name>
+    <url-pattern>/firstPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TRMS</display-name>
+    <servlet-name>ReEmbursementServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ReEmbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReEmbursementServlet</servlet-name>
+    <url-pattern>/ReEmbursement</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HomeServlet</display-name>
+    <servlet-name>HomeServlet</servlet-name>
+    <servlet-class>com.revature.servlets.HomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HomeServlet</servlet-name>
+    <url-pattern>/homePage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AuthServlet</display-name>
+    <servlet-name>AuthServlet</servlet-name>
+    <servlet-class>com.revature.servlets.AuthServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthServlet</servlet-name>
+    <url-pattern>/auth</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LogoutServlet</display-name>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.revature.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ViewAllReimbursementServlet</display-name>
+    <servlet-name>ViewAllReimbursementServlet</servlet-name>
+    <servlet-class>com.revature.servlets.ViewAllReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAllReimbursementServlet</servlet-name>
+    <url-pattern>/viewAllReimbursement</url-pattern>
+  </servlet-mapping>
 </web-app>

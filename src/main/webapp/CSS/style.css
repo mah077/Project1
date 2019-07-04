@@ -1,0 +1,43 @@
+#trms{
+	
+	color: #ffc107;
+	font-style: italic;
+	font-size: 35px;
+	
+}
+#logo{
+	color: #ffc107;
+	font-style: italic;
+	font-size: 35px;
+	padding-top : 1em;
+	padding-left: 2em;
+
+
+}
+
+navbar-default{
+	background-color: #ebc6d8;
+
+}
+.error {
+	color: red !important;
+}
+
+#rbf{
+	
+	font-style: italic;
+	font-size: 35px;
+	
+}
+
+#rbfl{
+	font-style: italic;
+}
+
+
+.form-signin {
+	background-color: white;
+	padding : 1px 3px !important;
+	
+}
+

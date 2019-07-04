@@ -1,62 +1,78 @@
 package com.revature.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.revature.util.ConnectionFactory;
+import javax.servlet.http.HttpSession;
+import com.revature.dao.LoginDao;
+import com.revature.services.CheckLoginService;
 import com.revature.util.LoggingUtil;
 
 
 
+
 public class LoginServlet extends HttpServlet{
-	public static Connection conn = ConnectionFactory.getConnection();
+
+	public static LoginDao login= new LoginDao();
 	
 	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("Hello TM!!!!");
-		PrintWriter pw = resp.getWriter();
-		pw.write("Hello World from servlet doGet method!!!!!");
 		resp.sendRedirect("firstPage.html");
-		tOffer(2,"byebye");
+
 	}
 	
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {	
+		CheckLoginService cl= new CheckLoginService();
 		
-		System.out.println("Hello Post???");
-		PrintWriter pw = resp.getWriter();
-		tOffer(100,"hello");
-		pw.write("Hello World from servlet doPost method!!!!!!");
-		tOffer(2,"yessssssssssssssss");
-	
+		String username = req.getParameter("email");
+		String password = req.getParameter("password");
+		//boolean istrue = login.isCorrectAuth(username, password);
+		boolean istrue =cl.CheckAuth(username,password);
+		
+		  if(istrue==true) { 
+		 HttpSession sess = req.getSession(true);//this for to create a session to make sure dont open any page either you are logging in 
+		 sess.setAttribute("user", true);// i put the youser in the session
+		 LoggingUtil.trace("login Success");
+		 resp.sendRedirect("Employee.html");
+			  
+		  //resp.getWriter().write("<h1>Successful Login</h1>");
+		 //req.getRequestDispatcher("home").forward(req, resp);
 			
+		  } 
+		  else {
+			  LoggingUtil.trace("login Failed");
+		  //resp.setStatus(401); 
+			  resp.sendRedirect("firstPage.html?error=1");
+			//resp.getWriter().write("<h1>Failed "+username+"Login</h1>");
+			 
+		  }
+		 
+		 
 		
+	
 	}
 	
-	
-	static void tOffer(int i,String it) {
-		
-		String sql="update offer set status = ? where offer_id = "+i;
-		PreparedStatement stmt;
-		
-		try {
-			stmt=conn.prepareStatement(sql);
-			stmt.setString(1, it);
-			stmt.executeUpdate();
-			
-		} catch (SQLException e) {
-			LoggingUtil.error(e.getMessage());
-			e.printStackTrace();
-		}
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("Inside the server method of lifeCycleServlet");
+		super.service(req, resp);
 	}
+
+	@Override
+	public void destroy() {
+		System.out.println("Inside the destroy method of lifeCycleServlet");
+		super.destroy();
+	}
+
+	@Override
+	public void init() throws ServletException {
+		System.out.println("Inside the init method of lifeCycleServlet");
+		super.init();
+	}
+
 }
