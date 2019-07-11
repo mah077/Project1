@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.revature.pojo.Employee;
 import com.revature.pojo.Reimbursement;
 import com.revature.util.ConnectionFactory;
 import com.revature.util.LoggingUtil;
@@ -14,6 +16,7 @@ import com.revature.util.LoggingUtil;
 public class ReimbursementDao implements ReimbursementDaoContract {
 	Connection conn = ConnectionFactory.getConnection();
 	public static Reimbursement re = new Reimbursement();
+	Employee e=new Employee();
 	
 	@Override
 	public void FillReEmbursement(Reimbursement re) {
@@ -31,25 +34,26 @@ public class ReimbursementDao implements ReimbursementDaoContract {
 		String ctype=re.getCourse_type();
 		
 		
+		
 		String sql="INSERT INTO public.reimbursement_form" + 
 				"(firstname, lastname, username, course_type, course_location, course_date, course_time, grade_format,"
 				+ " passing_grade,  work_related_justification, course_discripton, course_cost)" + 
 				"VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
-		String sql1="INSERT into public.isApproved (username,couse_type) values(?,?)";
-		
-		String sql2="INSERT into public.updateGrade (first_name,last_name, course_type,passing_grade) values(?,?,?,?)";
+//		String sql1="INSERT into public.isApproved (username,couse_type) values(?,?)";
+//		
+//		String sql2="INSERT into public.updateGrade (first_name,last_name, course_type,passing_grade) values(?,?,?,?)";
 	
 			
 		PreparedStatement stmt;
 		PreparedStatement stmt1;
-		PreparedStatement stmt2;
+//		PreparedStatement stmt2;
 		
 		try {
 			
 			
 			stmt = conn.prepareStatement(sql);
-			stmt1 = conn.prepareStatement(sql1);
-			stmt2 = conn.prepareStatement(sql2);
+//			stmt1 = conn.prepareStatement(sql1);
+//			stmt2 = conn.prepareStatement(sql2);
 			
 			
 			stmt.setString(1, fn);
@@ -66,15 +70,15 @@ public class ReimbursementDao implements ReimbursementDaoContract {
 			stmt.setDouble(12, cc);
 			stmt.executeUpdate();
 			
-			stmt1.setString(1, username);
-			stmt1.setString(2, ctype);
-			stmt1.executeUpdate();
+			/*
+			 * stmt1.setString(1, username); stmt1.setString(2, ctype);
+			 * stmt1.executeUpdate();
+			 */
 			
-			stmt2.setString(1, fn);
-			stmt2.setString(2, ln);
-			stmt2.setString(3, ctype);
-			stmt2.setString(4, pg);
-			stmt2.executeUpdate();
+			/*
+			 * stmt2.setString(1, fn); stmt2.setString(2, ln); stmt2.setString(3, ctype);
+			 * stmt2.setString(4, pg); stmt2.executeUpdate();
+			 */
 		}
 		catch (SQLException e) {
 			LoggingUtil.error(e.getMessage());
@@ -132,6 +136,33 @@ public class ReimbursementDao implements ReimbursementDaoContract {
 		return rblist;
 	}
 	
-	 
+	public List<Reimbursement> getReimbursement() {
+		
+		List<Reimbursement> rblist = new ArrayList<Reimbursement>();	
+		 String sql = "select * from reimbursement_form where username = ?;";	
+		 PreparedStatement stmt;
+		 String s=e.getUsername(); 
+		
+		try {
+			
+			stmt = conn.prepareStatement(sql);
+			 stmt.setString(1,s);
+			ResultSet rs = stmt.executeQuery();
+		
+			
+		if(rs.next()==false) {	}
+		else
+			do { rblist.add(new Reimbursement(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),
+					rs.getString(7),rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getDouble(13)));
+			
+		
+			}	while(rs.next());
+		} catch (SQLException e) {
+			LoggingUtil.error(e.getMessage());
+			System.out.println("no Query");
+			e.printStackTrace();
+		}	
+		return rblist;
+	}
 	
 }

@@ -1,20 +1,17 @@
 package com.revature.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dao.ReimbursementDao;
-import com.revature.pojo.Employee;
 import com.revature.pojo.Reimbursement;
+import com.revature.util.LoggingUtil;
 
 /**
  * Servlet implementation class ViewAllReimbursementServlet
@@ -30,6 +27,7 @@ public class ViewAllReimbursementServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Reimbursement> rblist;
+		
 		String name = request.getPathInfo();
 	    HttpSession sess = request.getSession(false);  
 	    if (sess == null && sess.getAttribute("user") == null) 
@@ -46,6 +44,7 @@ public class ViewAllReimbursementServlet extends HttpServlet {
 	    	ObjectMapper objectMapper = new ObjectMapper();  
 	    	String st=objectMapper.writeValueAsString(rblist);
 	    	response.getWriter().write(st);
+	    	LoggingUtil.trace("get list");
 		}
 	      	//response.getWriter().write("<p>"+st+"</p>");
 	    	//response.getWriter().append(objectMapper.writeValueAsString(rblist));            

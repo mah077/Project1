@@ -13,6 +13,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dao.ReimbursementDao;
 import com.revature.pojo.Employee;
 import com.revature.pojo.Reimbursement;
+import com.revature.util.LoggingUtil;
 
 
 
@@ -28,13 +29,8 @@ public class ReEmbursementServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession sess=request.getSession(false);
-		if(sess==null || sess.getAttribute("employee")==null) {
-			response.sendRedirect("firstPage");
-			return;
-		}
 		
-		Employee employee=(Employee) sess.getAttribute("employee");
+		//Employee employee=(Employee) sess.getAttribute("employee");
 		
 		String fn = request.getParameter("fn");
 		String ls = request.getParameter("ln");
@@ -56,6 +52,8 @@ public class ReEmbursementServlet extends HttpServlet {
 		pw.write("<h1>Reimbursment Submitted</h1>");
 		response.sendRedirect("Employee.html");
 		pw.write("<h1>Reimbursment Submitted</h1> !important");
-	}
+		LoggingUtil.trace("get list");
+		}
+	
 
 }

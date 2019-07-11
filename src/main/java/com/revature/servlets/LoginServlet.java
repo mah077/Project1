@@ -38,8 +38,23 @@ public class LoginServlet extends HttpServlet{
 		 HttpSession sess = req.getSession(true);//this for to create a session to make sure dont open any page either you are logging in 
 		 sess.setAttribute("user", true);// i put the youser in the session
 		 LoggingUtil.trace("login Success");
+		 
+		 
+		 if(username.contains("@emp")) {
 		 resp.sendRedirect("Employee.html");
-			  
+		 }
+		 else 
+			 if (username.contains("@sup"))
+		 {resp.sendRedirect("superVisor.html");}
+		 
+		 else 
+			 if (username.contains("@head"))
+		 { resp.sendRedirect("HeadDep.html");}
+		 
+		 else if (username.contains("@benco"))
+		 { resp.sendRedirect("benCo.html");}
+		 
+		 
 		  //resp.getWriter().write("<h1>Successful Login</h1>");
 		 //req.getRequestDispatcher("home").forward(req, resp);
 			

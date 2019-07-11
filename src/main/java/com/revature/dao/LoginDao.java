@@ -90,7 +90,7 @@ public class LoginDao implements LoginDaoContract{
 			user.setSupervisor(issuper);
 			user.setBenCo(isbenco);
 			user.setHeadDept(ishead);
-			
+			LoggingUtil.trace("login doa");
 			
 				return user;
 	}
